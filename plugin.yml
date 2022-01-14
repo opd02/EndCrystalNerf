@@ -1,0 +1,5 @@
+name: EndCrystalNerf
+author: opd02
+version: 0.1.4
+api-version: 1.13
+main: me.opd02.crystalnerf.CrystalNerfPlugin
