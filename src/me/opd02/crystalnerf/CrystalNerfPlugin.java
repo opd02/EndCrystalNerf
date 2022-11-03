@@ -45,11 +45,14 @@ public class CrystalNerfPlugin extends JavaPlugin implements Listener {
 		Entity ent = e.getEntity();
 		Entity dam = e.getDamager();
 		
-		if(!ent.getType().equals(EntityType.PLAYER) || !dam.getType().equals(EntityType.ENDER_CRYSTAL)){
+		if(!dam.getType().equals(EntityType.ENDER_CRYSTAL)){
 			return;
 		}
-		
-		e.setDamage(e.getDamage() - (e.getDamage() * (this.nerfPercentage / 100)));
+		if(ent.getType().equals(EntityType.PLAYER)){
+			e.setDamage(e.getDamage() - (e.getDamage() * (this.nerfPercentage / 100)));	
+		} else if(this.getConfig().getBoolean("ReduceDamageForMobsToo")==true){
+			e.setDamage(e.getDamage() - (e.getDamage() * (this.nerfPercentage / 100)));	
+		}
 		
 	}
 	
